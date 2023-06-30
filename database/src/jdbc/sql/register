@@ -1,0 +1,24 @@
+use grp;
+
+drop table register;
+drop table board;
+
+create table register(
+id int not null auto_increment primary key, 
+userid varchar(20),
+passwd varchar(20)
+);
+
+create table board(
+id int not null auto_increment,
+subject varchar(100) not null,
+writer varchar(10) not null,
+content text not null,
+regdate datetime,
+primary key(id)
+);
+
+show tables;
+
+INSERT INTO board(subject, writer, content, regdate) VALUES('공지사항입니다.', '관리자', '게시물 등록 테스트입니다.', now());
+INSERT INTO board(id, subject, writer, content, regdate) VALUES('1공지사항입니다.', '1관리자', '1게시물 등록 테스트입니다.', now());

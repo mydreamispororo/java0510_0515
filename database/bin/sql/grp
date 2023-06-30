@@ -1,0 +1,18 @@
+
+drop database grp if exists grp;
+create database grp;
+
+show databases;
+
+user grp;
+
+create table grp(
+	id int not null auto_increment,
+	subject varchar(15) not null,
+	writer varchar(20) not null,
+	content text,
+	upload varchar(255),
+	visit int,
+	regdate datetime,
+	primarty key(id)
+);

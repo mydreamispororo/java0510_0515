@@ -1,0 +1,15 @@
+drop database groupware;
+
+create database groupware;
+use groupware;
+
+show tables;
+
+create table board(
+bid int not null auto_increment,
+title varchar(250) not null,
+name varchar(20) not null,
+content text,
+regdate datetime,
+primary key(bid)
+);

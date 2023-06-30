@@ -1,0 +1,95 @@
+show databases;
+
+create database emp;
+
+
+use emp;
+
+create table employees(
+id int not null auto_increment,
+userid varchar(20),
+passwd varchar(20),
+username varchar(10),
+regdate datetime,
+addr varchar(100),
+primary key(id)
+);
+
+desc employees;
+
+
+
+
+use emp;
+
+create table test(
+username varchar(20),
+salary int,
+regdate date
+);
+INSERT INTO test(username, salary, regdate) VALUES('홍길동', 20000, '2022-01-01');
+INSERT INTO test(username, salary, regdate) VALUES('김철수', 20000, '2022-03-01');
+INSERT INTO test(username, salary, regdate) VALUES('이영희', 20000, '2022-01-30');
+INSERT INTO test(username, salary, regdate) VALUES('이영희', 35000, '2022-01-30');
+INSERT INTO test(username, salary, regdate) VALUES('김철수', 50000, '2022-03-01');
+INSERT INTO test(username, salary, regdate) VALUES('홍길동', 20000, '2022-01-01');
+
+
+Select
+1. 전체쿼리
+SELECT * FROM 테이블이름 ORDER pk DESC;
+SELECT * FROM 테이블이름 ORDER pk DESC LIMIT 0, 10; //최근 10개만 검색
+집계함수 SUM(), AVG(), MAX(), MIN(), COUNT()
+
+중복제거
+SELECT distinct 컬럼명 FROM test;
+SELECT distinct (컬럼명) FROM test;
+
+//SELECT username, sum(급여) from test group by username having;
+
+SELECT sum(컬럼명) FROM 테이블명;
+SELECT avg(컬럼명) FROM 테이블명;
+
+
+
+검색쿼리
+SELECT * FROM 테이블명 WHERE 컬럼명 = 값;
+SELECT * FROM 테이블명 WHERE 컬럼명 >= 값;
+
+SELECT * FROM test WHERE regdate >= '2022-01-01';
+
+
+논리연산쿼리
+SELECT * FROM 테이블명 WHERE 날짜컬럼 > 2022-01-01 AND 날짜컬럼 > 2022-12-31;
+
+SELECT * FROM 테이블명 ORDER pk DESC LIMIT 0, 10; // 최근0부터 10개만 검색
+SELECT * FROM 테이블명 ORDER BY username DESC LIMIT 0, 2;
+
+삭제 - 
+
+SELECT COUNT(username) FROM test;
+DELETE FROM 테이블명 WHERE username = '이영희';
+SELECT COUNT(username) FROM test;
+
+길이 포함된 사람 전부 검색하세요 : 부산
+길이 포함된 사람 전부 삭제하세요
+
+% : 앞에 어떤 글자기 있든
+% : 뒤에 어떤 글자기 있든
+
+유사어
+성이 홍인 사람을 전부 검색하시오.
+SELECT * FROM test where username like '홍%';
+
+동으로 이름이 끝나는 사람을 검색하시오
+SELECT * FROM test where username like '%동';
+
+DELETE FROM test where username like '%김%';
+
+SELECT username FROM test;
+
+String search = "부산";
+SELECT username FROM test WHERE search likt '%검색어%'
+
+
+
